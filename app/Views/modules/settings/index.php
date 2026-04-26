@@ -1,9 +1,9 @@
-<?php $title = 'Index'; ?>
+<?php $title = 'Company Settings'; ?>
 <div class="container-fluid py-4">
     <div class="row mb-3"><div class="col-12"><h4><i class="fas fa-cog me-2"></i>Settings</h4></div></div>
     
-    <?php if ($this->session()->get('flash')): ?>
-    <div class="alert alert-<?= $this->session()->get('flash.type') ?>"><?= htmlspecialchars($this->session()->get('flash.message')) ?></div>
+    <?php if ($this->getSession('flash')): ?>
+    <div class="alert alert-<?= $this->getSession('flash.type') ?>"><?= htmlspecialchars($this->getSession('flash.message')) ?></div>
     <?php endif; ?>
 
     <div class="row">

@@ -174,3 +174,35 @@ Router::add('GET|POST',    '/settings/users',                      'SettingsCont
 Router::add('GET|POST',    '/settings/business',                   'SettingsController', 'business');
 Router::add('GET|POST',    '/settings/form-builder',               'SettingsController', 'formBuilder');
 Router::add('POST',        '/settings/form-builder/save',          'SettingsController', 'saveTemplate');
+
+// ── Business Partner (BP) Module ──────────────────────────────────
+Router::add('GET',         '/bp',                                  'BP\BusinessPartnerController', 'index');
+Router::add('GET|POST',    '/bp/create',                           'BP\BusinessPartnerController', 'create');
+Router::add('POST',        '/bp/save-step1',                       'BP\BusinessPartnerController', 'saveStep1');
+Router::add('GET',         '/bp/show/:id',                         'BP\BusinessPartnerController', 'show');
+Router::add('GET|POST',    '/bp/edit-general/:id',                 'BP\BusinessPartnerController', 'editGeneral');
+Router::add('GET|POST',    '/bp/manage-roles/:id',                 'BP\BusinessPartnerController', 'manageRoles');
+Router::add('POST',        '/bp/save-role-data/:id',               'BP\BusinessPartnerController', 'saveRoleData');
+Router::add('POST',        '/bp/extend-role/:id',                  'BP\BusinessPartnerController', 'extendRole');
+Router::add('POST',        '/bp/save-address/:id',                 'BP\BusinessPartnerController', 'saveAddress');
+Router::add('POST',        '/bp/save-bank-account/:id',            'BP\BusinessPartnerController', 'saveBankAccount');
+Router::add('POST',        '/bp/save-compliance/:id',              'BP\BusinessPartnerController', 'saveCompliance');
+Router::add('POST',        '/bp/verify-compliance/:compId',        'BP\BusinessPartnerController', 'verifyCompliance');
+Router::add('POST',        '/bp/block/:id',                        'BP\BusinessPartnerController', 'blockBP');
+Router::add('POST',        '/bp/unblock/:id',                      'BP\BusinessPartnerController', 'unblockBP');
+Router::add('GET',         '/bp/credit-dashboard',                 'BP\BusinessPartnerController', 'creditDashboard');
+Router::add('GET|POST',    '/bp/hierarchy',                        'BP\BusinessPartnerController', 'hierarchy');
+Router::add('GET',         '/bp/approvals',                        'BP\BusinessPartnerController', 'approvals');
+Router::add('POST',        '/bp/process-approval/:approvalId',     'BP\BusinessPartnerController', 'processApproval');
+Router::add('GET',         '/bp/reports',                          'BP\BusinessPartnerController', 'reports');
+
+// ── Inventory Extended Routes ─────────────────────────────────────
+// Stock Entries
+Router::add('GET|POST',    '/inventory/stock-entries/new',         'InventoryController', 'newStockEntry');
+Router::add('GET',         '/inventory/stock-entries/view/:id',    'InventoryController', 'viewStockEntry');
+Router::add('POST',        '/inventory/stock-entries/cancel/:id',  'InventoryController', 'cancelStockEntry');
+// Stock Reconciliation
+Router::add('GET',         '/inventory/stock-reconciliation',      'InventoryController', 'stockReconciliations');
+Router::add('GET|POST',    '/inventory/stock-reconciliation/new',  'InventoryController', 'newStockReconciliation');
+Router::add('GET',         '/inventory/stock-reconciliation/view/:id', 'InventoryController', 'viewStockReconciliation');
+Router::add('POST',        '/inventory/stock-reconciliation/submit/:id', 'InventoryController', 'submitStockReconciliation');
