@@ -1,6 +1,5 @@
-<?= $this->layout('modules/layout') ?>
+<?php $title = 'Employees'; ?>
 
-<?php $this->start('content') ?>
 <div class="container-fluid py-4">
     <div class="row mb-3">
         <div class="col-12">
@@ -61,4 +60,3 @@
         </div>
     </div>
 </div>
-<?php $this->end() ?>

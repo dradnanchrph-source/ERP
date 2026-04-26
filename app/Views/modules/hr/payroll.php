@@ -1,5 +1,4 @@
-<?= $this->layout('modules/layout') ?>
-<?php $this->start('content') ?>
+<?php $title = 'Payroll'; ?>
 <div class="container-fluid py-4">
     <div class="row mb-3"><div class="col-12"><h4><i class="fas fa-money-check-alt me-2"></i>Payroll</h4></div></div>
     <div class="row"><div class="col-12"><div class="card shadow-sm"><div class="card-body">
@@ -16,4 +15,3 @@
         </table>
     </div></div></div></div>
 </div>
-<?php $this->end() ?>

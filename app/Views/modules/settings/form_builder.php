@@ -1,5 +1,4 @@
-<?= $this->layout('modules/layout') ?>
-<?php $this->start('content') ?>
+<?php $title = 'Form Builder'; ?>
 <div class="container-fluid py-4">
     <div class="row mb-3"><div class="col-12"><h4><i class="fas fa-wrench me-2"></i>Form Builder</h4></div></div>
     
@@ -35,4 +34,3 @@
         </div>
     </div>
 </div>
-<?php $this->end() ?>

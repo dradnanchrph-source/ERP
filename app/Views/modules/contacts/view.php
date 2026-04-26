@@ -1,5 +1,4 @@
-<?= $this->layout('modules/layout') ?>
-<?php $this->start('content') ?>
+<?php $title = 'Contact 360° View - ' . ($contact->name ?? ''); ?>
 <div class="container-fluid py-4">
     <div class="row mb-3">
         <div class="col-12">
@@ -74,4 +73,3 @@
         </div>
     </div>
 </div>
-<?php $this->end() ?>

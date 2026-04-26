@@ -1,5 +1,4 @@
-<?= $this->layout('modules/layout') ?>
-<?php $this->start('content') ?>
+<?php $title = 'Users'; ?>
 <div class="container-fluid py-4">
     <div class="row mb-3"><div class="col-12"><h4><i class="fas fa-users-cog me-2"></i>User Management</h4></div></div>
     
@@ -34,4 +33,3 @@
         </div>
     </div>
 </div>
-<?php $this->end() ?>

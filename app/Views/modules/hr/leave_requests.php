@@ -1,5 +1,4 @@
-<?= $this->layout('modules/layout') ?>
-<?php $this->start('content') ?>
+<?php $title = 'Leave Requests'; ?>
 <div class="container-fluid py-4">
     <div class="row mb-3"><div class="col-12"><h4><i class="fas fa-calendar-alt me-2"></i>Leave Requests</h4></div></div>
     <div class="row"><div class="col-12"><div class="card shadow-sm"><div class="card-body">
@@ -27,4 +26,3 @@
 function approveLeave(id) { fetch(`/hr/leaveAction/${id}/approve`).then(r=>r.json()).then(d=>{ if(d.success) location.reload(); }); }
 function rejectLeave(id) { fetch(`/hr/leaveAction/${id}/reject`).then(r=>r.json()).then(d=>{ if(d.success) location.reload(); }); }
 </script>
-<?php $this->end() ?>
