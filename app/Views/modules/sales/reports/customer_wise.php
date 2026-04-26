@@ -22,7 +22,7 @@
     ?>
     <tr>
       <td class="text-muted small"><?= $i+1 ?></td>
-      <td class="fw-semibold"><a href="/contacts/view/<?= $r->id ?>" class="text-decoration-none"><?= e($r->name??'—') ?></a></td>
+      <td class="fw-semibold"><a href="/contacts/show/<?= $r->id ?>" class="text-decoration-none"><?= e($r->name??'—') ?></a></td>
       <td><code class="small text-muted"><?= e($r->code??'—') ?></code></td>
       <td class="small text-muted"><?= e($r->territory??'—') ?></td>
       <td class="text-center"><span class="badge bg-secondary"><?= $r->invoice_count??0 ?></span></td>

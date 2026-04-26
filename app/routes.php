@@ -18,7 +18,7 @@ Router::add('GET',         '/dashboard/stats','DashboardController', 'stats');
 // ── Contacts ──────────────────────────────────────────────────────
 Router::add('GET',         '/contacts',                'ContactController', 'index');
 Router::add('GET|POST',    '/contacts/create',         'ContactController', 'create');
-Router::add('GET',         '/contacts/view/:id',       'ContactController', 'view');
+Router::add('GET',         '/contacts/show/:id',       'ContactController', 'show');
 Router::add('GET|POST',    '/contacts/edit/:id',       'ContactController', 'edit');
 Router::add('POST',        '/contacts/delete/:id',     'ContactController', 'delete');
 Router::add('GET',         '/contacts/ledger/:id',     'ContactController', 'ledger');
@@ -42,113 +42,113 @@ Router::add('GET',         '/inventory/alerts',                    'InventoryCon
 
 // ── PURCHASE MODULE ────────────────────────────────────────────────
 // Purchase Requisitions
-Router::add('GET',         '/purchases/requisitions',              'PurchaseController', 'requisitions');
-Router::add('GET|POST',    '/purchases/requisitions/create',       'PurchaseController', 'createRequisition');
-Router::add('GET',         '/purchases/requisitions/view/:id',     'PurchaseController', 'viewRequisition');
-Router::add('POST',        '/purchases/requisitions/submit/:id',   'PurchaseController', 'submitRequisition');
-Router::add('POST',        '/purchases/requisitions/approve/:id',  'PurchaseController', 'approveRequisition');
+Router::add('GET',         '/purchases/requisitions',              'Purchase\\PurchaseController', 'requisitions');
+Router::add('GET|POST',    '/purchases/requisitions/create',       'Purchase\\PurchaseController', 'createRequisition');
+Router::add('GET',         '/purchases/requisitions/view/:id',     'Purchase\\PurchaseController', 'viewRequisition');
+Router::add('POST',        '/purchases/requisitions/submit/:id',   'Purchase\\PurchaseController', 'submitRequisition');
+Router::add('POST',        '/purchases/requisitions/approve/:id',  'Purchase\\PurchaseController', 'approveRequisition');
 // RFQ
-Router::add('GET',         '/purchases/rfq',                       'PurchaseController', 'rfqList');
-Router::add('GET|POST',    '/purchases/rfq/create',                'PurchaseController', 'createRFQ');
-Router::add('GET',         '/purchases/rfq/view/:id',              'PurchaseController', 'viewRFQ');
-Router::add('GET',         '/purchases/rfq/compare/:id',           'PurchaseController', 'compareQuotations');
-Router::add('POST',        '/purchases/rfq/award/:id',             'PurchaseController', 'awardRFQ');
+Router::add('GET',         '/purchases/rfq',                       'Purchase\\PurchaseController', 'rfqList');
+Router::add('GET|POST',    '/purchases/rfq/create',                'Purchase\\PurchaseController', 'createRFQ');
+Router::add('GET',         '/purchases/rfq/view/:id',              'Purchase\\PurchaseController', 'viewRFQ');
+Router::add('GET',         '/purchases/rfq/compare/:id',           'Purchase\\PurchaseController', 'compareQuotations');
+Router::add('POST',        '/purchases/rfq/award/:id',             'Purchase\\PurchaseController', 'awardRFQ');
 // Purchase Orders
-Router::add('GET',         '/purchases/orders',                    'PurchaseController', 'orders');
-Router::add('GET|POST',    '/purchases/orders/create',             'PurchaseController', 'createOrder');
-Router::add('GET',         '/purchases/orders/view/:id',           'PurchaseController', 'viewOrder');
-Router::add('GET',         '/purchases/orders/print/:id',          'PurchaseController', 'printOrder');
-Router::add('POST',        '/purchases/orders/approve/:id',        'PurchaseController', 'approvePO');
+Router::add('GET',         '/purchases/orders',                    'Purchase\\PurchaseController', 'orders');
+Router::add('GET|POST',    '/purchases/orders/create',             'Purchase\\PurchaseController', 'createOrder');
+Router::add('GET',         '/purchases/orders/view/:id',           'Purchase\\PurchaseController', 'viewOrder');
+Router::add('GET',         '/purchases/orders/print/:id',          'Purchase\\PurchaseController', 'printOrder');
+Router::add('POST',        '/purchases/orders/approve/:id',        'Purchase\\PurchaseController', 'approvePO');
 // GRN
-Router::add('GET',         '/purchases/grn',                       'PurchaseController', 'grnList');
-Router::add('GET|POST',    '/purchases/grn/create',                'PurchaseController', 'createGRN');
-Router::add('GET',         '/purchases/grn/view/:id',              'PurchaseController', 'viewGRN');
-Router::add('POST',        '/purchases/grn/post-stock/:id',        'PurchaseController', 'postGRNStock');
+Router::add('GET',         '/purchases/grn',                       'Purchase\\PurchaseController', 'grnList');
+Router::add('GET|POST',    '/purchases/grn/create',                'Purchase\\PurchaseController', 'createGRN');
+Router::add('GET',         '/purchases/grn/view/:id',              'Purchase\\PurchaseController', 'viewGRN');
+Router::add('POST',        '/purchases/grn/post-stock/:id',        'Purchase\\PurchaseController', 'postGRNStock');
 // Quality Control
-Router::add('GET',         '/purchases/qc',                        'PurchaseController', 'qcList');
-Router::add('GET',         '/purchases/qc/view/:id',               'PurchaseController', 'viewQC');
-Router::add('POST',        '/purchases/qc/process/:id',            'PurchaseController', 'processQC');
+Router::add('GET',         '/purchases/qc',                        'Purchase\\PurchaseController', 'qcList');
+Router::add('GET',         '/purchases/qc/view/:id',               'Purchase\\PurchaseController', 'viewQC');
+Router::add('POST',        '/purchases/qc/process/:id',            'Purchase\\PurchaseController', 'processQC');
 // Purchase Invoices
-Router::add('GET',         '/purchases/invoices',                  'PurchaseController', 'purchaseInvoices');
-Router::add('GET|POST',    '/purchases/invoices/create',           'PurchaseController', 'createPurchaseInvoice');
-Router::add('GET',         '/purchases/invoices/view/:id',         'PurchaseController', 'viewPurchaseInvoice');
+Router::add('GET',         '/purchases/invoices',                  'Purchase\\PurchaseController', 'purchaseInvoices');
+Router::add('GET|POST',    '/purchases/invoices/create',           'Purchase\\PurchaseController', 'createPurchaseInvoice');
+Router::add('GET',         '/purchases/invoices/view/:id',         'Purchase\\PurchaseController', 'viewPurchaseInvoice');
 // Purchase Returns
-Router::add('GET',         '/purchases/returns',                   'PurchaseController', 'returnsList');
-Router::add('GET|POST',    '/purchases/returns/create',            'PurchaseController', 'createReturn');
-Router::add('GET',         '/purchases/returns/view/:id',          'PurchaseController', 'viewReturn');
+Router::add('GET',         '/purchases/returns',                   'Purchase\\PurchaseController', 'returnsList');
+Router::add('GET|POST',    '/purchases/returns/create',            'Purchase\\PurchaseController', 'createReturn');
+Router::add('GET',         '/purchases/returns/view/:id',          'Purchase\\PurchaseController', 'viewReturn');
 // Import
-Router::add('GET',         '/purchases/import',                    'PurchaseController', 'importList');
-Router::add('GET|POST',    '/purchases/import/create',             'PurchaseController', 'createImport');
-Router::add('GET',         '/purchases/import/view/:id',           'PurchaseController', 'viewImport');
-Router::add('POST',        '/purchases/import/status/:id',         'PurchaseController', 'updateImportStatus');
+Router::add('GET',         '/purchases/import',                    'Purchase\\PurchaseController', 'importList');
+Router::add('GET|POST',    '/purchases/import/create',             'Purchase\\PurchaseController', 'createImport');
+Router::add('GET',         '/purchases/import/view/:id',           'Purchase\\PurchaseController', 'viewImport');
+Router::add('POST',        '/purchases/import/status/:id',         'Purchase\\PurchaseController', 'updateImportStatus');
 // Purchase Reports
-Router::add('GET',         '/purchases/reports',                   'PurchaseController', 'purchaseReports');
-Router::add('GET',         '/purchases/reports/register',          'PurchaseController', 'purchaseRegister');
-Router::add('GET',         '/purchases/reports/vendor-wise',       'PurchaseController', 'vendorWisePurchase');
-Router::add('GET',         '/purchases/reports/pending',           'PurchaseController', 'pendingPRPO');
-Router::add('GET',         '/purchases/reports/rate-comparison',   'PurchaseController', 'rateComparison');
+Router::add('GET',         '/purchases/reports',                   'Purchase\\PurchaseController', 'purchaseReports');
+Router::add('GET',         '/purchases/reports/register',          'Purchase\\PurchaseController', 'purchaseRegister');
+Router::add('GET',         '/purchases/reports/vendor-wise',       'Purchase\\PurchaseController', 'vendorWisePurchase');
+Router::add('GET',         '/purchases/reports/pending',           'Purchase\\PurchaseController', 'pendingPRPO');
+Router::add('GET',         '/purchases/reports/rate-comparison',   'Purchase\\PurchaseController', 'rateComparison');
 // Purchase Approvals
-Router::add('GET',         '/purchases/approvals',                 'PurchaseController', 'approvals');
-Router::add('POST',        '/purchases/approvals/process/:id',     'PurchaseController', 'processApproval');
+Router::add('GET',         '/purchases/approvals',                 'Purchase\\PurchaseController', 'approvals');
+Router::add('POST',        '/purchases/approvals/process/:id',     'Purchase\\PurchaseController', 'processApproval');
 // Fallback /purchases -> requisitions list
-Router::add('GET',         '/purchases',                           'PurchaseController', 'requisitions');
+Router::add('GET',         '/purchases',                           'Purchase\\PurchaseController', 'requisitions');
 
 // ── SALES MODULE ───────────────────────────────────────────────────
 // Inquiries
-Router::add('GET',         '/sales/inquiries',                     'SalesController', 'inquiries');
-Router::add('GET|POST',    '/sales/inquiries/create',              'SalesController', 'createInquiry');
-Router::add('GET',         '/sales/inquiries/view/:id',            'SalesController', 'viewInquiry');
-Router::add('POST',        '/sales/inquiries/status/:id',          'SalesController', 'updateInquiryStatus');
+Router::add('GET',         '/sales/inquiries',                     'Sales\\SalesModuleController', 'inquiries');
+Router::add('GET|POST',    '/sales/inquiries/create',              'Sales\\SalesModuleController', 'createInquiry');
+Router::add('GET',         '/sales/inquiries/view/:id',            'Sales\\SalesModuleController', 'viewInquiry');
+Router::add('POST',        '/sales/inquiries/status/:id',          'Sales\\SalesModuleController', 'updateInquiryStatus');
 // Quotations
-Router::add('GET',         '/sales/quotations',                    'SalesController', 'quotations');
-Router::add('GET|POST',    '/sales/quotations/create',             'SalesController', 'createQuotation');
-Router::add('GET',         '/sales/quotations/view/:id',           'SalesController', 'viewQuotation');
-Router::add('GET',         '/sales/quotations/print/:id',          'SalesController', 'printQuotation');
-Router::add('POST',        '/sales/quotations/approve/:id',        'SalesController', 'approveQuotation');
-Router::add('POST',        '/sales/quotations/convert/:id',        'SalesController', 'convertQuotationToSO');
+Router::add('GET',         '/sales/quotations',                    'Sales\\SalesModuleController', 'quotations');
+Router::add('GET|POST',    '/sales/quotations/create',             'Sales\\SalesModuleController', 'createQuotation');
+Router::add('GET',         '/sales/quotations/view/:id',           'Sales\\SalesModuleController', 'viewQuotation');
+Router::add('GET',         '/sales/quotations/print/:id',          'Sales\\SalesModuleController', 'printQuotation');
+Router::add('POST',        '/sales/quotations/approve/:id',        'Sales\\SalesModuleController', 'approveQuotation');
+Router::add('POST',        '/sales/quotations/convert/:id',        'Sales\\SalesModuleController', 'convertQuotationToSO');
 // Sales Orders
-Router::add('GET',         '/sales/orders',                        'SalesController', 'soList');
-Router::add('GET|POST',    '/sales/orders/create',                 'SalesController', 'createSO');
-Router::add('GET',         '/sales/orders/view/:id',               'SalesController', 'viewSO');
-Router::add('POST',        '/sales/orders/allocate-batches/:id',   'SalesController', 'allocateBatches');
+Router::add('GET',         '/sales/orders',                        'Sales\\SalesModuleController', 'soList');
+Router::add('GET|POST',    '/sales/orders/create',                 'Sales\\SalesModuleController', 'createSO');
+Router::add('GET',         '/sales/orders/view/:id',               'Sales\\SalesModuleController', 'viewSO');
+Router::add('POST',        '/sales/orders/allocate-batches/:id',   'Sales\\SalesModuleController', 'allocateBatches');
 // Dispatch / Delivery
-Router::add('GET',         '/sales/dispatch',                      'SalesController', 'deliveryOrders');
-Router::add('GET|POST',    '/sales/dispatch/create',               'SalesController', 'createDeliveryOrder');
-Router::add('GET',         '/sales/dispatch/view/:id',             'SalesController', 'viewDeliveryOrder');
-Router::add('POST',        '/sales/dispatch/dispatch/:id',         'SalesController', 'dispatchDO');
-Router::add('POST',        '/sales/dispatch/confirm/:id',          'SalesController', 'confirmDelivery');
+Router::add('GET',         '/sales/dispatch',                      'Sales\\SalesModuleController', 'deliveryOrders');
+Router::add('GET|POST',    '/sales/dispatch/create',               'Sales\\SalesModuleController', 'createDeliveryOrder');
+Router::add('GET',         '/sales/dispatch/view/:id',             'Sales\\SalesModuleController', 'viewDeliveryOrder');
+Router::add('POST',        '/sales/dispatch/dispatch/:id',         'Sales\\SalesModuleController', 'dispatchDO');
+Router::add('POST',        '/sales/dispatch/confirm/:id',          'Sales\\SalesModuleController', 'confirmDelivery');
 // Batch Allocation (FEFO)
-Router::add('GET',         '/sales/batch-allocation',              'SalesController', 'batchAllocation');
-Router::add('GET',         '/sales/batch-availability',            'SalesController', 'checkBatchAvailability');
+Router::add('GET',         '/sales/batch-allocation',              'Sales\\SalesModuleController', 'batchAllocation');
+Router::add('GET',         '/sales/batch-availability',            'Sales\\SalesModuleController', 'checkBatchAvailability');
 // Sales Invoices
-Router::add('GET',         '/sales/invoices',                      'SalesController', 'salesInvoices');
-Router::add('GET|POST',    '/sales/invoices/create',               'SalesController', 'createSalesInvoice');
-Router::add('GET',         '/sales/invoices/view/:id',             'SalesController', 'viewInvoice');
-Router::add('GET',         '/sales/invoices/print/:id',            'SalesController', 'printInvoice');
-Router::add('POST',        '/sales/invoices/mark-paid/:id',        'SalesController', 'markPaid');
-Router::add('POST',        '/sales/invoices/delete/:id',           'SalesController', 'deleteInvoice');
-Router::add('POST',        '/sales/invoices/bulk-delete',          'SalesController', 'bulkDeleteInvoices');
+Router::add('GET',         '/sales/invoices',                      'Sales\\SalesModuleController', 'salesInvoices');
+Router::add('GET|POST',    '/sales/invoices/create',               'Sales\\SalesModuleController', 'createSalesInvoice');
+Router::add('GET',         '/sales/invoices/view/:id',             'Sales\\SalesModuleController', 'viewInvoice');
+Router::add('GET',         '/sales/invoices/print/:id',            'Sales\\SalesModuleController', 'printInvoice');
+Router::add('POST',        '/sales/invoices/mark-paid/:id',        'Sales\\SalesModuleController', 'markPaid');
+Router::add('POST',        '/sales/invoices/delete/:id',           'Sales\\SalesModuleController', 'deleteInvoice');
+Router::add('POST',        '/sales/invoices/bulk-delete',          'Sales\\SalesModuleController', 'bulkDeleteInvoices');
 // Sales Returns
-Router::add('GET',         '/sales/returns',                       'SalesController', 'salesReturns');
-Router::add('GET|POST',    '/sales/returns/create',                'SalesController', 'createSalesReturn');
-Router::add('GET',         '/sales/returns/view/:id',              'SalesController', 'viewSalesReturn');
+Router::add('GET',         '/sales/returns',                       'Sales\\SalesModuleController', 'salesReturns');
+Router::add('GET|POST',    '/sales/returns/create',                'Sales\\SalesModuleController', 'createSalesReturn');
+Router::add('GET',         '/sales/returns/view/:id',              'Sales\\SalesModuleController', 'viewSalesReturn');
 // Pricing & Schemes
-Router::add('GET',         '/sales/pricing',                       'SalesController', 'pricingDashboard');
-Router::add('GET|POST',    '/sales/pricing/bonus/create',          'SalesController', 'createBonusScheme');
+Router::add('GET',         '/sales/pricing',                       'Sales\\SalesModuleController', 'pricingDashboard');
+Router::add('GET|POST',    '/sales/pricing/bonus/create',          'Sales\\SalesModuleController', 'createBonusScheme');
 // Sales Reports
-Router::add('GET',         '/sales/reports',                       'SalesController', 'salesReports');
-Router::add('GET',         '/sales/reports/register',              'SalesController', 'salesRegister');
-Router::add('GET',         '/sales/reports/product-wise',          'SalesController', 'productWiseSales');
-Router::add('GET',         '/sales/reports/customer-wise',         'SalesController', 'customerWiseSales');
-Router::add('GET',         '/sales/reports/pending-orders',        'SalesController', 'pendingOrders');
-Router::add('GET',         '/sales/reports/dispatch-status',       'SalesController', 'dispatchStatus');
-Router::add('GET',         '/sales/reports/expiry-risk',           'SalesController', 'expiryRiskReport');
+Router::add('GET',         '/sales/reports',                       'Sales\\SalesModuleController', 'salesReports');
+Router::add('GET',         '/sales/reports/register',              'Sales\\SalesModuleController', 'salesRegister');
+Router::add('GET',         '/sales/reports/product-wise',          'Sales\\SalesModuleController', 'productWiseSales');
+Router::add('GET',         '/sales/reports/customer-wise',         'Sales\\SalesModuleController', 'customerWiseSales');
+Router::add('GET',         '/sales/reports/pending-orders',        'Sales\\SalesModuleController', 'pendingOrders');
+Router::add('GET',         '/sales/reports/dispatch-status',       'Sales\\SalesModuleController', 'dispatchStatus');
+Router::add('GET',         '/sales/reports/expiry-risk',           'Sales\\SalesModuleController', 'expiryRiskReport');
 // Sales Approvals
-Router::add('GET',         '/sales/approvals',                     'SalesController', 'salesApprovals');
-Router::add('POST',        '/sales/approvals/credit/:id',          'SalesController', 'processCreditApproval');
-Router::add('POST',        '/sales/approvals/discount/:id',        'SalesController', 'processDiscountApproval');
+Router::add('GET',         '/sales/approvals',                     'Sales\\SalesModuleController', 'salesApprovals');
+Router::add('POST',        '/sales/approvals/credit/:id',          'Sales\\SalesModuleController', 'processCreditApproval');
+Router::add('POST',        '/sales/approvals/discount/:id',        'Sales\\SalesModuleController', 'processDiscountApproval');
 // Fallback /sales -> invoices
-Router::add('GET',         '/sales',                               'SalesController', 'salesInvoices');
+Router::add('GET',         '/sales',                               'Sales\\SalesModuleController', 'salesInvoices');
 
 // ── Finance Reports ────────────────────────────────────────────────
 Router::add('GET',         '/reports',                             'ReportController', 'index');
@@ -174,3 +174,35 @@ Router::add('GET|POST',    '/settings/users',                      'SettingsCont
 Router::add('GET|POST',    '/settings/business',                   'SettingsController', 'business');
 Router::add('GET|POST',    '/settings/form-builder',               'SettingsController', 'formBuilder');
 Router::add('POST',        '/settings/form-builder/save',          'SettingsController', 'saveTemplate');
+
+// ── Business Partner (BP) Module ──────────────────────────────────
+Router::add('GET',         '/bp',                                  'BP\BusinessPartnerController', 'index');
+Router::add('GET|POST',    '/bp/create',                           'BP\BusinessPartnerController', 'create');
+Router::add('POST',        '/bp/save-step1',                       'BP\BusinessPartnerController', 'saveStep1');
+Router::add('GET',         '/bp/show/:id',                         'BP\BusinessPartnerController', 'show');
+Router::add('GET|POST',    '/bp/edit-general/:id',                 'BP\BusinessPartnerController', 'editGeneral');
+Router::add('GET|POST',    '/bp/manage-roles/:id',                 'BP\BusinessPartnerController', 'manageRoles');
+Router::add('POST',        '/bp/save-role-data/:id',               'BP\BusinessPartnerController', 'saveRoleData');
+Router::add('POST',        '/bp/extend-role/:id',                  'BP\BusinessPartnerController', 'extendRole');
+Router::add('POST',        '/bp/save-address/:id',                 'BP\BusinessPartnerController', 'saveAddress');
+Router::add('POST',        '/bp/save-bank-account/:id',            'BP\BusinessPartnerController', 'saveBankAccount');
+Router::add('POST',        '/bp/save-compliance/:id',              'BP\BusinessPartnerController', 'saveCompliance');
+Router::add('POST',        '/bp/verify-compliance/:compId',        'BP\BusinessPartnerController', 'verifyCompliance');
+Router::add('POST',        '/bp/block/:id',                        'BP\BusinessPartnerController', 'blockBP');
+Router::add('POST',        '/bp/unblock/:id',                      'BP\BusinessPartnerController', 'unblockBP');
+Router::add('GET',         '/bp/credit-dashboard',                 'BP\BusinessPartnerController', 'creditDashboard');
+Router::add('GET|POST',    '/bp/hierarchy',                        'BP\BusinessPartnerController', 'hierarchy');
+Router::add('GET',         '/bp/approvals',                        'BP\BusinessPartnerController', 'approvals');
+Router::add('POST',        '/bp/process-approval/:approvalId',     'BP\BusinessPartnerController', 'processApproval');
+Router::add('GET',         '/bp/reports',                          'BP\BusinessPartnerController', 'reports');
+
+// ── Inventory Extended Routes ─────────────────────────────────────
+// Stock Entries
+Router::add('GET|POST',    '/inventory/stock-entries/new',         'InventoryController', 'newStockEntry');
+Router::add('GET',         '/inventory/stock-entries/view/:id',    'InventoryController', 'viewStockEntry');
+Router::add('POST',        '/inventory/stock-entries/cancel/:id',  'InventoryController', 'cancelStockEntry');
+// Stock Reconciliation
+Router::add('GET',         '/inventory/stock-reconciliation',      'InventoryController', 'stockReconciliations');
+Router::add('GET|POST',    '/inventory/stock-reconciliation/new',  'InventoryController', 'newStockReconciliation');
+Router::add('GET',         '/inventory/stock-reconciliation/view/:id', 'InventoryController', 'viewStockReconciliation');
+Router::add('POST',        '/inventory/stock-reconciliation/submit/:id', 'InventoryController', 'submitStockReconciliation');

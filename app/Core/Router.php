@@ -22,19 +22,13 @@ class Router {
             if (preg_match($pattern, '/' . $url, $matches)) {
                 $params = array_filter($matches, 'is_string', ARRAY_FILTER_USE_KEY);
 
-                // Check main dir and subdirs
-                $ctrlFile = APP . '/Controllers/' . $route['controller'] . '.php';
+                // Check main dir first
+                $ctrlFile = APP . '/Controllers/' . str_replace('\\', '/', $route['controller']) . '.php';
+                
                 if (!file_exists($ctrlFile)) {
-                    // Search subdirectories
-                    $found = false;
-                    foreach (['Purchase', 'Sales', 'BP'] as $subDir) {
-                        $sub = APP . '/Controllers/' . $subDir . '/' . $route['controller'] . '.php';
-                        if (file_exists($sub)) { $ctrlFile = $sub; $found = true; break; }
-                    }
-                    if (!$found) {
-                        http_response_code(500);
-                        echo "Controller not found: {$route['controller']}"; exit;
-                    }
+                    http_response_code(500);
+                    echo "Controller not found: {$route['controller']} (tried: " . str_replace('\\', '/', $route['controller']) . ")"; 
+                    exit;
                 }
                 require_once $ctrlFile;
 

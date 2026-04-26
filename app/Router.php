@@ -24,14 +24,21 @@ class Router {
 
                 // Check subdirs first, then main dir
                 $ctrlFile = null;
-                foreach (['Purchase'] as $subDir) {
+                $subDirs = ['Purchase', 'Sales', 'BP']; // All module subdirectories
+                
+                foreach ($subDirs as $subDir) {
                     $sub = APP . '/Controllers/' . $subDir . '/' . $route['controller'] . '.php';
-                    if (file_exists($sub)) { $ctrlFile = $sub; break; }
+                    if (file_exists($sub)) { 
+                        $ctrlFile = $sub; 
+                        break; 
+                    }
                 }
+                
                 if (!$ctrlFile) {
                     $main = APP . '/Controllers/' . $route['controller'] . '.php';
                     if (file_exists($main)) $ctrlFile = $main;
                 }
+                
                 if (!$ctrlFile) {
                     http_response_code(500);
                     echo "Controller not found: {$route['controller']}"; exit;

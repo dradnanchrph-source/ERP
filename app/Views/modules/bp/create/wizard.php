@@ -227,7 +227,7 @@ async function runDupCheck() {
     panel.style.display = 'block';
     list.innerHTML = data.data.duplicates.map(d =>
       `<div class="small p-2 rounded mb-1" style="background:rgba(245,158,11,.1)">
-        <a href="/bp/view/${d.bp.id}" target="_blank" class="fw-bold text-decoration-none">${d.bp.bp_number}</a> — ${d.bp.legal_name}
+        <a href="/bp/show/${d.bp.id}" target="_blank" class="fw-bold text-decoration-none">${d.bp.bp_number}</a> — ${d.bp.legal_name}
         <span class="badge bg-warning text-dark ms-1">${d.score}% match</span>
         <div class="text-muted" style="font-size:.7rem">Matched: ${d.fields.join(', ')}</div>
        </div>`

@@ -6,7 +6,7 @@
   </div>
   <div class="d-flex gap-2">
     <a href="/purchases/orders/create" class="btn btn-primary btn-sm"><i class="fas fa-shopping-cart me-1"></i>New PO</a>
-    <a href="/bp/view/<?= $bp->id ?>" class="btn btn-outline-secondary btn-sm">BP Profile</a>
+    <a href="/bp/show/<?= $bp->id ?>" class="btn btn-outline-secondary btn-sm">BP Profile</a>
   </div>
 </div>
 

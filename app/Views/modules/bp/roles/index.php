@@ -2,7 +2,7 @@
 <div class="page-header">
   <div><h1 class="page-title">Role Data: <?= e($bp->bp_number ?? '—') ?><small><?= e($bp->legal_name ?? '') ?></small></h1></div>
   <div class="d-flex gap-2">
-    <a href="/bp/view/<?= $bp->id ?>" class="btn btn-outline-secondary btn-sm"><i class="fas fa-arrow-left me-1"></i>Back to BP</a>
+    <a href="/bp/show/<?= $bp->id ?>" class="btn btn-outline-secondary btn-sm"><i class="fas fa-arrow-left me-1"></i>Back to BP</a>
   </div>
 </div>
 
