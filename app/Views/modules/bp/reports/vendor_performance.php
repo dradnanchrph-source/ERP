@@ -34,7 +34,7 @@
         $overallClass = $overall >= 7 ? 'text-success' : ($overall >= 5 ? 'text-warning' : ($overall > 0 ? 'text-danger' : 'text-muted'));
       ?>
       <tr>
-        <td><a href="/bp/view/<?= $r->id ?>" class="fw-bold text-decoration-none" style="color:var(--primary)"><?= e($r->bp_number ?? '—') ?></a></td>
+        <td><a href="/bp/show/<?= $r->id ?>" class="fw-bold text-decoration-none" style="color:var(--primary)"><?= e($r->bp_number ?? '—') ?></a></td>
         <td class="fw-semibold"><a href="/bp/reports/vendor-360/<?= $r->id ?>" class="text-decoration-none"><?= e($r->legal_name ?? '—') ?></a></td>
         <td class="text-center">
           <?php $q = (float)($r->quality_rating ?? 0); ?>
@@ -65,7 +65,7 @@
         <td class="text-center"><?= ($r->approved_vendor ?? 0) ? '<i class="fas fa-check-circle text-success"></i>' : '<i class="fas fa-times-circle text-danger"></i>' ?></td>
         <td data-noexport>
           <a href="/bp/reports/vendor-360/<?= $r->id ?>" class="btn btn-xs btn-outline-primary"><i class="fas fa-chart-pie"></i></a>
-          <a href="/bp/view/<?= $r->id ?>" class="btn btn-xs btn-outline-info"><i class="fas fa-eye"></i></a>
+          <a href="/bp/show/<?= $r->id ?>" class="btn btn-xs btn-outline-info"><i class="fas fa-eye"></i></a>
         </td>
       </tr>
       <?php endforeach; endif; ?>

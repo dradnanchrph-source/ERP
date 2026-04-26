@@ -299,7 +299,7 @@
     </div>
     <?php elseif($k==='hierarchy'): ?>
     <div class="table-responsive"><table class="table"><thead><tr><th>Related BP</th><th>Relationship</th><th>Level</th><th>Valid From</th></tr></thead>
-    <tbody><?php foreach($hierarchy as $h): ?><tr><td><a href="/bp/view/<?= $h->bp_id==$bp->id?$h->parent_bp_id:$h->bp_id ?>" class="fw-bold text-decoration-none"><?= e($h->related_name??'—') ?></a><br><code class="small"><?= e($h->parent_num??$h->child_num??'') ?></code></td><td><?= badge($h->relationship??'subsidiary') ?></td><td><?= $h->hierarchy_level??1 ?></td><td class="small"><?= fmt_date($h->valid_from??null) ?></td></tr><?php endforeach; ?><?php if(empty($hierarchy)): ?><tr><td colspan="4" class="text-center text-muted py-3">No hierarchy links defined.</td></tr><?php endif; ?></tbody></table></div>
+    <tbody><?php foreach($hierarchy as $h): ?><tr><td><a href="/bp/show/<?= $h->bp_id==$bp->id?$h->parent_bp_id:$h->bp_id ?>" class="fw-bold text-decoration-none"><?= e($h->related_name??'—') ?></a><br><code class="small"><?= e($h->parent_num??$h->child_num??'') ?></code></td><td><?= badge($h->relationship??'subsidiary') ?></td><td><?= $h->hierarchy_level??1 ?></td><td class="small"><?= fmt_date($h->valid_from??null) ?></td></tr><?php endforeach; ?><?php if(empty($hierarchy)): ?><tr><td colspan="4" class="text-center text-muted py-3">No hierarchy links defined.</td></tr><?php endif; ?></tbody></table></div>
     <?php else: ?>
     <div class="text-center text-muted py-4"><i class="fas fa-cog fa-2x d-block mb-2 opacity-25"></i>Configure via Role Data.</div>
     <?php endif; ?>

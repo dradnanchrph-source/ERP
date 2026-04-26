@@ -29,7 +29,7 @@ $highRisk=array_filter($bps,fn($b)=>($b->risk_category??'')===('high'));
       $barColor=$pct>=100?'#dc2626':($pct>=80?'#d97706':($pct>=50?'#f59e0b':'#059669'));
     ?>
     <tr class="<?= $breached?'table-danger-soft':($pct>=80?'table-warning-soft':'') ?>">
-      <td><a href="/bp/view/<?= $b->id ?>" class="fw-bold text-decoration-none" style="color:var(--primary)"><?= e($b->bp_number??'—') ?></a></td>
+      <td><a href="/bp/show/<?= $b->id ?>" class="fw-bold text-decoration-none" style="color:var(--primary)"><?= e($b->bp_number??'—') ?></a></td>
       <td class="fw-semibold small"><?= e(trunc($b->legal_name??'',25)) ?></td>
       <td><span class="badge bg-<?= ['low'=>'success','medium'=>'warning','high'=>'danger','blacklist'=>'dark'][$b->risk_category??'medium']??'secondary' ?>"><?= ucfirst($b->risk_category??'medium') ?></span></td>
       <td class="text-end"><?= money($limit) ?></td>

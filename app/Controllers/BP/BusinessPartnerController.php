@@ -197,7 +197,7 @@ class BusinessPartnerController extends Controller {
     // ============================================================
     // VIEW — 360 PROFILE
     // ============================================================
-    public function view(string $id): void {
+    public function show(string $id): void {
         $this->requireAuth();
         $bp        = DB::row("SELECT bp.*,g.* FROM business_partners bp LEFT JOIN bp_general_data g ON g.bp_id=bp.id WHERE bp.id=? AND bp.business_id=?",[$id,$this->bizId]);
         if (!$bp) { flash('error','BP not found.'); $this->redirect('/bp'); }

@@ -18,7 +18,7 @@ Router::add('GET',         '/dashboard/stats','DashboardController', 'stats');
 // ── Contacts ──────────────────────────────────────────────────────
 Router::add('GET',         '/contacts',                'ContactController', 'index');
 Router::add('GET|POST',    '/contacts/create',         'ContactController', 'create');
-Router::add('GET',         '/contacts/view/:id',       'ContactController', 'view');
+Router::add('GET',         '/contacts/show/:id',       'ContactController', 'show');
 Router::add('GET|POST',    '/contacts/edit/:id',       'ContactController', 'edit');
 Router::add('POST',        '/contacts/delete/:id',     'ContactController', 'delete');
 Router::add('GET',         '/contacts/ledger/:id',     'ContactController', 'ledger');

@@ -57,14 +57,14 @@
       <?php foreach ($links as $link): ?>
       <tr>
         <td>
-          <a href="/bp/view/<?= $link->parent_bp_id ?>" class="fw-bold text-decoration-none" style="color:var(--primary)">
+          <a href="/bp/show/<?= $link->parent_bp_id ?>" class="fw-bold text-decoration-none" style="color:var(--primary)">
             <?= e($link->parent_num ?? '—') ?>
           </a>
           <div class="small text-muted"><?= e($link->parent_name ?? '') ?></div>
         </td>
         <td class="text-center text-muted"><i class="fas fa-arrow-right"></i></td>
         <td>
-          <a href="/bp/view/<?= $link->bp_id ?>" class="fw-bold text-decoration-none" style="color:var(--primary)">
+          <a href="/bp/show/<?= $link->bp_id ?>" class="fw-bold text-decoration-none" style="color:var(--primary)">
             <?= e($link->child_num ?? '—') ?>
           </a>
           <div class="small text-muted"><?= e($link->child_name ?? '') ?></div>
@@ -89,7 +89,7 @@
       <tbody>
       <?php foreach ($roots as $bp): ?>
       <tr>
-        <td><a href="/bp/view/<?= $bp->id ?>" class="fw-bold text-decoration-none" style="color:var(--primary)"><?= e($bp->bp_number ?? '—') ?></a></td>
+        <td><a href="/bp/show/<?= $bp->id ?>" class="fw-bold text-decoration-none" style="color:var(--primary)"><?= e($bp->bp_number ?? '—') ?></a></td>
         <td class="fw-semibold"><?= e($bp->legal_name ?? '—') ?></td>
         <td class="small text-muted"><?= e($bp->city ?? '—') ?></td>
         <td data-noexport>

@@ -65,7 +65,7 @@
       <tr data-id="<?= $c->id ?>">
         <td><input type="checkbox" class="row-cb form-check-input" data-id="<?= $c->id ?>"></td>
         <td><code class="small" style="color:var(--primary)"><?= e($c->code??'—') ?></code></td>
-        <td class="fw-semibold"><a href="/contacts/view/<?= $c->id ?>" class="text-decoration-none"><?= e($c->name) ?></a></td>
+        <td class="fw-semibold"><a href="/contacts/show/<?= $c->id ?>" class="text-decoration-none"><?= e($c->name) ?></a></td>
         <td><?= badge($c->type??'customer') ?></td>
         <td class="small text-muted"><?= e($c->company??'—') ?></td>
         <td class="small"><?= e($c->phone??'—') ?></td>
@@ -73,7 +73,7 @@
         <td class="text-end <?= ($c->balance??0)>0?'text-danger fw-semibold':'' ?>"><?= money($c->balance??0) ?></td>
         <td><?= badge($c->is_active?'active':'inactive') ?></td>
         <td data-noexport>
-          <a href="/contacts/view/<?= $c->id ?>" class="btn btn-xs btn-outline-info" title="View"><i class="fas fa-eye"></i></a>
+          <a href="/contacts/show/<?= $c->id ?>" class="btn btn-xs btn-outline-info" title="View"><i class="fas fa-eye"></i></a>
           <a href="/contacts/edit/<?= $c->id ?>" class="btn btn-xs btn-outline-primary" title="Edit"><i class="fas fa-edit"></i></a>
           <a href="/contacts/ledger/<?= $c->id ?>" class="btn btn-xs btn-outline-secondary" title="Ledger"><i class="fas fa-book"></i></a>
         </td>

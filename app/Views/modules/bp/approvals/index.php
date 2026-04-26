@@ -8,7 +8,7 @@
     <tbody>
     <?php foreach($pending as $a): ?>
     <tr style="background:rgba(217,119,6,.05)">
-      <td><a href="/bp/view/<?= $a->bp_id ?>" class="fw-bold text-decoration-none" style="color:var(--primary)"><?= e($a->bp_number??'—') ?></a></td>
+      <td><a href="/bp/show/<?= $a->bp_id ?>" class="fw-bold text-decoration-none" style="color:var(--primary)"><?= e($a->bp_number??'—') ?></a></td>
       <td class="fw-semibold"><?= e($a->legal_name??'—') ?></td>
       <td><span class="badge bg-warning text-dark"><?= ucwords(str_replace('_',' ',$a->approval_type??'creation')) ?></span></td>
       <td class="small"><?= e($a->requested_by_name??'—') ?></td>
@@ -16,7 +16,7 @@
       <td>
         <button onclick="processAppr(<?= $a->id ?>,'approve')" class="btn btn-xs btn-success"><i class="fas fa-check me-1"></i>Approve</button>
         <button onclick="processAppr(<?= $a->id ?>,'reject')" class="btn btn-xs btn-danger"><i class="fas fa-times me-1"></i>Reject</button>
-        <a href="/bp/view/<?= $a->bp_id ?>" class="btn btn-xs btn-outline-info"><i class="fas fa-eye"></i></a>
+        <a href="/bp/show/<?= $a->bp_id ?>" class="btn btn-xs btn-outline-info"><i class="fas fa-eye"></i></a>
       </td>
     </tr>
     <?php endforeach; ?>
@@ -31,7 +31,7 @@
     <tbody>
     <?php if(empty($recent)): ?><tr><td colspan="5" class="text-center py-3 text-muted">No recent activity</td></tr>
     <?php else: foreach($recent as $a): ?>
-    <tr><td class="fw-semibold small"><a href="/bp/view/<?= $a->bp_id ?>" class="text-decoration-none" style="color:var(--primary)"><?= e($a->bp_number??'—') ?></a></td>
+    <tr><td class="fw-semibold small"><a href="/bp/show/<?= $a->bp_id ?>" class="text-decoration-none" style="color:var(--primary)"><?= e($a->bp_number??'—') ?></a></td>
     <td class="small"><?= e($a->legal_name??'—') ?></td>
     <td><span class="badge bg-secondary"><?= ucwords(str_replace('_',' ',$a->approval_type??'')) ?></span></td>
     <td><?= badge($a->status??'pending') ?></td>

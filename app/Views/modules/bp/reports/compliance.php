@@ -25,7 +25,7 @@
       $cls=$dL<0?'table-danger-soft':($dL<30?'table-danger-soft':'table-warning-soft');
     ?>
     <tr class="<?= $cls ?>">
-      <td><a href="/bp/view/<?= $r->bp_id ?>" class="fw-bold text-decoration-none" style="color:var(--primary)"><?= e($r->bp_number??'—') ?></a></td>
+      <td><a href="/bp/show/<?= $r->bp_id ?>" class="fw-bold text-decoration-none" style="color:var(--primary)"><?= e($r->bp_number??'—') ?></a></td>
       <td class="fw-semibold small"><?= e($r->legal_name??'—') ?></td>
       <td><?= badge($r->bp_status??'active') ?></td>
       <td class="fw-semibold small"><?= ucwords(str_replace('_',' ',$r->compliance_type??'')) ?></td>
@@ -36,7 +36,7 @@
       <td class="text-center"><?= ($r->verified??0)?'<span class="badge bg-success"><i class="fas fa-check"></i></span>':'<span class="badge bg-secondary">No</span>' ?></td>
       <td><?= badge($r->status??'valid') ?></td>
       <td data-noexport>
-        <a href="/bp/view/<?= $r->bp_id ?>" class="btn btn-xs btn-outline-primary">View BP</a>
+        <a href="/bp/show/<?= $r->bp_id ?>" class="btn btn-xs btn-outline-primary">View BP</a>
         <?php if($r->file_path??''): ?><a href="<?= e($r->file_path) ?>" class="btn btn-xs btn-outline-info" target="_blank"><i class="fas fa-file-pdf"></i></a><?php endif; ?>
       </td>
     </tr>

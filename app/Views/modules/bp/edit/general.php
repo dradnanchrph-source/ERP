@@ -1,7 +1,7 @@
 <?php $title = 'Edit BP: ' . ($bp->bp_number ?? '—'); ?>
 <div class="page-header">
   <div><h1 class="page-title">Edit General Data<small><?= e($bp->bp_number ?? '—') ?> — <?= e($bp->legal_name ?? '') ?></small></h1></div>
-  <a href="/bp/view/<?= $bp->id ?>" class="btn btn-outline-secondary btn-sm">Cancel</a>
+  <a href="/bp/show/<?= $bp->id ?>" class="btn btn-outline-secondary btn-sm">Cancel</a>
 </div>
 
 <form method="post">

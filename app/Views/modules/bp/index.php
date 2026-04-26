@@ -88,7 +88,7 @@
       ?>
       <tr class="<?= $bp->status==='blocked'?'table-danger-soft':'' ?>">
         <td>
-          <a href="/bp/view/<?= $bp->id ?>" class="fw-bold text-decoration-none" style="color:var(--primary)"><?= e($bp->bp_number??'—') ?></a>
+          <a href="/bp/show/<?= $bp->id ?>" class="fw-bold text-decoration-none" style="color:var(--primary)"><?= e($bp->bp_number??'—') ?></a>
           <?php if ($bp->approval_status==='pending'): ?><span class="badge bg-warning text-dark ms-1" style="font-size:.6rem">Pending</span><?php endif; ?>
         </td>
         <td>
@@ -121,7 +121,7 @@
           <?php endif; ?>
         </td>
         <td data-noexport>
-          <a href="/bp/view/<?= $bp->id ?>" class="btn btn-xs btn-outline-info" title="360 View"><i class="fas fa-eye"></i></a>
+          <a href="/bp/show/<?= $bp->id ?>" class="btn btn-xs btn-outline-info" title="360 View"><i class="fas fa-eye"></i></a>
           <a href="/bp/roles/<?= $bp->id ?>" class="btn btn-xs btn-outline-primary" title="Manage Roles"><i class="fas fa-user-tag"></i></a>
           <?php if (in_array('customer', $roleList)): ?>
           <a href="/bp/reports/customer-360/<?= $bp->id ?>" class="btn btn-xs btn-outline-success" title="Customer 360"><i class="fas fa-chart-pie"></i></a>
